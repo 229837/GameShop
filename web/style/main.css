@@ -1,0 +1,29 @@
+body {
+    background-color: #e8e8e8;
+    color: #000000;
+}
+
+p {
+    padding: 10px;
+}
+
+.nav_bar_style {
+    background-color: #3c3c3c;
+    background-image: linear-gradient(#000000, #3c3c3c);
+}
+
+.first_row {
+    background-color: #e8e8e8;
+}
+
+.main_content>p {
+    text-indent: 25px;
+}
+
+.footer_bar {
+    text-align: right;
+}
+
+.navbar {
+    padding: 10px;
+}

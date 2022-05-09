@@ -1,0 +1,93 @@
+<!doctype html>
+
+<html lang="pl">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="Game shop with Spring Boot">
+        <meta name="keyworlds" content="Zaawansowane Zagadnienia Programowania w Javie">
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="style/main.css">
+        <!--<$USE_CSS$>-->
+        <script type="text/javascript" src="scripts/main.js"></script>
+        <!--<$USE_JS$>-->
+
+        <title>
+            Game Shop
+        </title>
+    </head>
+
+    <body>
+        <header>
+            <nav class="navbar navbar-dark navbar-expand-md nav_bar_style">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand order-first mx-5" href="#">
+                    GameShop
+                </a>
+                <div class="collapse navbar-collapse" id="main_menu">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">
+                                Start
+                            </a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" role="button" id="sub_menu" aria-expanded="false" aria-haspopup="true">
+                                Produkty
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="sub_menu">
+                                <a class="dropdown-item" href="/products">
+                                    Wszystkie
+                                </a>
+                                <a class="dropdown-item" href="/products/search">
+                                    Wyszukaj
+                                </a>
+                                <a class="dropdown-item" href="/products/admin">
+                                    Admin panel
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">
+                                    <div class="collapse navbar-collapse">
+                                        <input type="text" id="textFieldSearch_1" name="text" value="UUID">
+                                        <input type="submit" value="Submit" onclick="searchProduct()">
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <section>
+            <div class="container-fluid">
+                <div class="row px-5 first_row">
+                    <div class="col-lg-1 mt-5">
+                    </div>
+                    <div class="col-lg-10 mt-5">
+                        <div class="main_content">
+                            No i tutaj cos juz jest.
+                        </div>
+                    </div>
+                    <div class="col-lg-1 mt-5">
+                    </div>
+                </div>
+
+                <div class="row mt-5 p-3">
+                    <div class="footer_bar">
+                        &copy; 2022 Game shop.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    </body>
+</html>
