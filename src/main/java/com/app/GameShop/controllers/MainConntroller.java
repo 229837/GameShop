@@ -18,16 +18,18 @@ public class MainConntroller {
         Path websitePath = Path.of(websitePathStr);
         Path stylePath = Path.of(stylePathStr);
         Path scriptsPath = Path.of(scriptsPathStr);
-        String contentHTML = null;
-        String contentCSS = null;
-        String contentJS = null;
+        String contentHTML = null, contentCSS = null, contentJS = null;
         try {
             contentHTML = Files.readString(websitePath);
             contentCSS = Files.readString(stylePath);
             contentJS = Files.readString(scriptsPath);
         } catch (IOException e) {
-            return "Can not open files : " + websitePathStr + " : " + stylePathStr + " : " + scriptsPathStr;
+            return "Can not open files : " +
+                    websitePathStr + " : " +
+                    stylePathStr + " : " +
+                    scriptsPathStr;
         }
+
         return contentHTML
                 .replace("<!--<$USE_CSS$>-->", "\n<style>\n" + contentCSS + "\n</style>\n")
                 .replace("<!--<$USE_JS$>-->", "\n<script>\n" + contentJS + "\n</script>\n");
