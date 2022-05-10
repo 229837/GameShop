@@ -20,46 +20,31 @@ public class ProductController {
     }
 
     @GetMapping("/products")
-    public String getAll() {
+    public List<Product> getAll() {
         List<Product> products = productService.getAll();
+        return products;
 
-        String productsDescription = "";
-        for(int i=0; i<products.size(); i++) {
-            productsDescription += products.get(i).toString();
-        }
-
-        return productsDescription;
+//        String productsDescription = "";
+//        for(int i=0; i<products.size(); i++) {
+//            productsDescription += products.get(i).toString();
+//        }
+//
+//        return productsDescription;
     }
 
     @GetMapping("/products/id/{id}")
-    public String get(@PathVariable String id) {
-        String productDescription = "";
-        Product pointer = productService.getByID(Integer.parseInt(id));
-        if(pointer != null) {
-            productDescription = pointer.toString();
-        }
-        else {
-            productDescription = "Product not found, wrong ID:" + id;
-        }
-        return productDescription;
+    public Product get(@PathVariable String id) {
+        return productService.getByID(Integer.parseInt(id));
     }
 
     @GetMapping("/products/find/{id}")
-    public String find(@PathVariable String id) {
-        String productDescription = "";
-        Product pointer = productService.find(UUID.fromString(id));
-        if(pointer != null) {
-            productDescription = pointer.toString();
-        }
-        else {
-            productDescription = "Product not found, wrong UUID:" + id;
-        }
-        return productDescription;
+    public Product find(@PathVariable String id) {
+        return productService.find(UUID.fromString(id));
     }
 
     /// EXAMPLE : http://localhost:8080/products/add?name=Product1&price=1.25&genre=1
     @GetMapping("/products/add")
-    public String add(@RequestParam String name, @RequestParam float price, @RequestParam int genre) {
+    public Product add(@RequestParam String name, @RequestParam float price, @RequestParam int genre) {
         Product product = new Product();
         product.setId(UUID.randomUUID());
         product.setName(name);
@@ -67,10 +52,10 @@ public class ProductController {
         product.setGenre(Genre.intToGenre(genre));
 
         if(productService.add(product)) {
-            return "Add new object \n" + product.toString();
+            return product;
         }
         else {
-            return "Add method error";
+            return null;
         }
     }
 }
