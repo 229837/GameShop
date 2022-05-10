@@ -6,7 +6,6 @@ import com.app.GameShop.services.CommentService;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,9 +20,11 @@ public class CommentController {
     }
 
     @GetMapping("/comments/add")
-    public Comment add(@RequestParam Client owner, @RequestParam String commentContent, @RequestParam int rating, @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dateTime) {
+    public Comment add(@RequestParam String ownerUUID, @RequestParam String commentContent, @RequestParam int rating) {
         try {
-            Comment comment = new Comment(owner, commentContent, rating, dateTime);
+            //TODO get existing client
+            Client owner = new Client(UUID.fromString(ownerUUID), "Client", "1234", 1, 1, 1999);
+            Comment comment = new Comment(owner, commentContent, rating, LocalDateTime.now());
             if (commentService.add(comment)) {
                 return comment;
             }
@@ -43,7 +44,7 @@ public class CommentController {
         return commentService.getAll();
     }
 
-    @GetMapping("/comments/find/{id}")
+    @GetMapping("/comments/find/{uuid}")
     public Comment find(@PathVariable String uuid) {
         return commentService.find(UUID.fromString(uuid));
     }

@@ -61,6 +61,25 @@
                                 </a>
                             </div>
                         </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" role="button" id="sub_menu_comments" aria-expanded="false" aria-haspopup="true">
+                                Komentarze
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="sub_menu">
+                                <a class="dropdown-item" href="#" onclick="displayAll_Comment()">
+                                    Wszystkie
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">
+                                    <div class="collapse navbar-collapse">
+                                        <input type="text" id="textFieldSearchComment" name="text" value="UUID">
+                                        <input type="submit" value="Search" onclick="findByUUID_Comment()">
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </nav>
