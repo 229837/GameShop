@@ -7,7 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 @RestController
-public class MainConntroller {
+public class MainController {
 
     private String websitePathStr = "web/index.html";
     private String stylePathStr = "web/style/main.css";
