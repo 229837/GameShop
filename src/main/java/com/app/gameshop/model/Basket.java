@@ -1,10 +1,9 @@
-package com.app.GameShop.model;
+package com.app.gameshop.model;
 
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.List;
-import java.util.Objects;
 
 @Getter
 @Setter
