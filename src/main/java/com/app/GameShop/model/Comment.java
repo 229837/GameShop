@@ -13,20 +13,16 @@ public class Comment {
     private final LocalDateTime dateTime;
 
     public Comment(Client owner, String comment, int rating, LocalDateTime dateTime) throws IllegalArgumentException {
-        if (owner == null)
-        {
+        if (owner == null) {
             throw new IllegalArgumentException("Invalid owner");
         }
-        if (comment.isEmpty())
-        {
+        if (comment.isEmpty()) {
             throw new IllegalArgumentException("Comment can not be empty");
         }
-        if (rating < 1 || rating > 5)
-        {
+        if (rating < 1 || rating > 5) {
             throw new IllegalArgumentException("Rating not in range");
         }
-        if (dateTime == null)
-        {
+        if (dateTime == null) {
             throw new IllegalArgumentException("Invalid date time");
         }
         this.uuid = UUID.randomUUID();

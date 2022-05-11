@@ -17,10 +17,9 @@ public class CommentService {
     }
 
     public Comment get(int id) {
-        if(id < 0 || id > commentRepository.size() - 1) {
+        if (id < 0 || id > commentRepository.size() - 1) {
             return null;
-        }
-        else {
+        } else {
             return commentRepository.get(id);
         }
     }
@@ -30,8 +29,8 @@ public class CommentService {
     }
 
     public Comment find(UUID uuid) {
-        for(int i = 0; i < commentRepository.size(); i++) {
-            if(commentRepository.get(i).getUuid().equals(uuid)) {
+        for (int i = 0; i < commentRepository.size(); i++) {
+            if (commentRepository.get(i).getUuid().equals(uuid)) {
                 return commentRepository.get(i);
             }
         }

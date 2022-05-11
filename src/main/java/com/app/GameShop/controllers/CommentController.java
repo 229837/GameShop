@@ -20,10 +20,10 @@ public class CommentController {
     }
 
     @GetMapping("/comments/add")
-    public Comment add(@RequestParam String ownerUUID, @RequestParam String commentContent, @RequestParam int rating) {
+    public Comment add(@RequestParam String ownerUuid, @RequestParam String commentContent, @RequestParam int rating) {
         try {
             //TODO get existing client
-            Client owner = new Client(UUID.fromString(ownerUUID), "Client", "1234", 1, 1, 1999);
+            Client owner = new Client(UUID.fromString(ownerUuid), "Client", "1234", 1, 1, 1999);
             Comment comment = new Comment(owner, commentContent, rating, LocalDateTime.now());
             if (commentService.add(comment)) {
                 return comment;
