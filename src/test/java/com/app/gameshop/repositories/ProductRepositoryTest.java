@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ProductRepositoryTest {
 
@@ -50,6 +51,8 @@ class ProductRepositoryTest {
         assertEquals(pr.getAll().size(), 2);
         assertEquals(pr.getAll().get(0), p1);
         assertEquals(pr.getAll().get(1), p2);
+
+        assertEquals(pr.findByName("Gra1"), p1);
 
         assertEquals(pr.remove(p1), true);
         assertEquals(pr.remove(p1), false);

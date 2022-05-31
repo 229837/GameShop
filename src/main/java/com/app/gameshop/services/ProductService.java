@@ -45,4 +45,8 @@ public class ProductService {
         }
         return null;
     }
+
+    public Product findByName(String name) {
+        return productRepository.findByName(name);
+    }
 }

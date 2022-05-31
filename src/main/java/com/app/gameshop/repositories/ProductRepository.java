@@ -43,4 +43,13 @@ public class ProductRepository implements Repository<Product> {
     public int size() {
         return products.size();
     }
+
+    public Product findByName(String name) {
+        for(int i=0; i<products.size(); i++) {
+            if(name.equals(products.get(i).getName())) {
+                return products.get(i);
+            }
+        }
+        return null;
+    }
 }

@@ -53,6 +53,7 @@ class ProductServiceTest {
         assertEquals(ps.getAll().get(1), p2);
 
         assertEquals(ps.find(savedUUID), p1);
+        assertEquals(ps.findByName("Gra1"), p1);
 
         assertEquals(ps.remove(p1), true);
         assertEquals(ps.remove(p1), false);
