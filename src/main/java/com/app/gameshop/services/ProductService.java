@@ -11,11 +11,17 @@ import java.util.UUID;
 @Service
 public class ProductService {
 
-    @Autowired
     private ProductRepository productRepository;
+    public ProductService(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
 
     public boolean add(Product product) {
         return productRepository.add(product);
+    }
+
+    public boolean remove(Product product) {
+        return productRepository.remove(product);
     }
 
     public List<Product> getAll() {

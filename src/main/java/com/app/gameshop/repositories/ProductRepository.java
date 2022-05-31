@@ -13,6 +13,8 @@ public class ProductRepository implements Repository<Product> {
 
     @Override
     public Product get(int id) {
+        if(id < 0 || id >= products.size())
+            return null;
         return products.get(id);
     }
 
@@ -23,7 +25,13 @@ public class ProductRepository implements Repository<Product> {
 
     @Override
     public boolean add(Product newObject) {
-        return products.add(newObject);
+        for(int i=0; i<products.size(); i++) {
+            if(newObject == products.get(i)) {
+                return false;
+            }
+        }
+        products.add(newObject);
+        return true;
     }
 
     @Override
