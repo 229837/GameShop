@@ -52,8 +52,6 @@ class ProductRepositoryTest {
         assertEquals(pr.getAll().get(0), p1);
         assertEquals(pr.getAll().get(1), p2);
 
-        assertEquals(pr.findByName("Gra1"), p1);
-
         assertEquals(pr.remove(p1), true);
         assertEquals(pr.remove(p1), false);
 

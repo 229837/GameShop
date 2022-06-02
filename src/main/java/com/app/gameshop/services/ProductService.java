@@ -1,10 +1,13 @@
 package com.app.gameshop.services;
 
+import com.app.gameshop.model.Genre;
 import com.app.gameshop.model.Product;
 import com.app.gameshop.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
@@ -47,6 +50,37 @@ public class ProductService {
     }
 
     public Product findByName(String name) {
-        return productRepository.findByName(name);
+        for(int i=0; i<productRepository.size(); i++) {
+            if(name.equals(productRepository.get(i).getName())) {
+                return productRepository.get(i);
+            }
+        }
+        return null;
+    }
+
+    public List<Product> findByGenre(Genre genre) {
+        List<Product> result = new ArrayList<>();
+
+        List<Product> all = productRepository.getAll();
+        for(int i=0; i<all.size(); i++) {
+            if(all.get(i).getGenre() == genre) {
+                result.add(all.get(i));
+            }
+        }
+
+        return Collections.unmodifiableList(result);
+    }
+
+    public List<Product> findFreeGames() {
+        List<Product> result = new ArrayList<>();
+
+        List<Product> all = productRepository.getAll();
+        for(int i=0; i<all.size(); i++) {
+            if(all.get(i).getPrice() < 0.001f) {
+                result.add(all.get(i));
+            }
+        }
+
+        return Collections.unmodifiableList(result);
     }
 }
