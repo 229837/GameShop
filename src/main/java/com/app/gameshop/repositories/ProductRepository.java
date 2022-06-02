@@ -1,5 +1,6 @@
 package com.app.gameshop.repositories;
 
+import com.app.gameshop.model.Genre;
 import com.app.gameshop.model.Product;
 
 import java.util.ArrayList;
@@ -42,14 +43,5 @@ public class ProductRepository implements Repository<Product> {
     @Override
     public int size() {
         return products.size();
-    }
-
-    public Product findByName(String name) {
-        for(int i=0; i<products.size(); i++) {
-            if(name.equals(products.get(i).getName())) {
-                return products.get(i);
-            }
-        }
-        return null;
     }
 }
