@@ -5,6 +5,9 @@ import com.app.gameshop.model.Genre;
 import com.app.gameshop.repositories.ProductRepository;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -64,5 +67,30 @@ class ProductServiceTest {
 
         assertEquals(ps.remove(p1), true);
         assertEquals(ps.remove(p1), false);
+    }
+
+    @Test
+    void sortTest() {
+        Random rand = new Random();
+
+        ProductService ps = new ProductService(new ProductRepository());
+
+        for(int i=0; i<25; i++) {
+            Product p1 = new Product();
+            p1.setId(UUID.randomUUID());
+            p1.setName("Gra" + Integer.toString(i));
+            p1.setPrice(5.25f + (((rand.nextInt()%19)-10) * 0.37f));
+            p1.setGenre(Genre.intToGenre((Math.abs(rand.nextInt())%2)+1));
+            p1.getDetails().setNumberOfPurchases(Math.abs(rand.nextInt())%100);
+            ps.add(p1);
+        }
+
+        assertEquals(ps.getAll().size(), 25);
+
+        List<Product> sorted = ps.sortByAddDateAZ();
+
+        for(int i=0; i<sorted.size(); i++) {
+            System.out.println(sorted.get(i));
+        }
     }
 }
