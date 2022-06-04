@@ -1,4 +1,4 @@
-package com.app.gameshop.model;
+package com.app.GameShop.model;
 
 public enum Genre {
     Undefined, STRATEGY, FPS;

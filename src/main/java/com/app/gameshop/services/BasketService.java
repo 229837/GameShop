@@ -1,8 +1,8 @@
-package com.app.gameshop.services;
+package com.app.GameShop.services;
 
 
-import com.app.gameshop.model.Basket;
-import com.app.gameshop.repositories.BasketRepository;
+import com.app.GameShop.model.Basket;
+import com.app.GameShop.repositories.BasketRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

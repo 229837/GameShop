@@ -1,4 +1,4 @@
-package com.app.gameshop.controllers;
+package com.app.GameShop.controllers;
 
 import org.springframework.web.bind.annotation.RestController;
 

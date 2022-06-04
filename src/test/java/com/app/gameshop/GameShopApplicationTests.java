@@ -1,4 +1,4 @@
-package com.app.gameshop;
+package com.app.GameShop;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

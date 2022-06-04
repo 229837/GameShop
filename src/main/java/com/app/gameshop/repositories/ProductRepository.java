@@ -1,6 +1,6 @@
-package com.app.gameshop.repositories;
+package com.app.GameShop.repositories;
 
-import com.app.gameshop.model.Product;
+import com.app.GameShop.model.Product;
 
 import java.util.ArrayList;
 import java.util.Collections;

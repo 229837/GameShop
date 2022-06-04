@@ -1,8 +1,8 @@
-package com.app.gameshop.controllers;
+package com.app.GameShop.controllers;
 
-import com.app.gameshop.model.Client;
-import com.app.gameshop.model.Comment;
-import com.app.gameshop.services.CommentService;
+import com.app.GameShop.model.Client;
+import com.app.GameShop.model.Comment;
+import com.app.GameShop.services.CommentService;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
