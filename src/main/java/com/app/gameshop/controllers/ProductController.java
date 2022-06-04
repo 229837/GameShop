@@ -23,13 +23,6 @@ public class ProductController {
     public List<Product> getAll() {
         List<Product> products = productService.getAll();
         return products;
-
-//        String productsDescription = "";
-//        for(int i=0; i<products.size(); i++) {
-//            productsDescription += products.get(i).toString();
-//        }
-//
-//        return productsDescription;
     }
 
     @GetMapping("/products/id/{id}")
@@ -40,6 +33,11 @@ public class ProductController {
     @GetMapping("/products/find/{id}")
     public Product find(@PathVariable String id) {
         return productService.find(UUID.fromString(id));
+    }
+
+    @GetMapping("/products/find_by_name/{name}")
+    public Product findByName(@PathVariable String name) {
+        return productService.findByName(name);
     }
 
     /// EXAMPLE : http://localhost:8080/products/add?name=Product1&price=1.25&genre=1
@@ -57,5 +55,10 @@ public class ProductController {
         else {
             return null;
         }
+    }
+
+    @GetMapping("/products/remove")
+    public boolean removeUUID(@RequestParam String id) {
+        return productService.remove(productService.find(UUID.fromString(id)));
     }
 }
