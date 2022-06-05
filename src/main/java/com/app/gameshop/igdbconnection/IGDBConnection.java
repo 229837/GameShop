@@ -65,6 +65,47 @@ public class IGDBConnection {
         }
     }
 
+    public static List<Game> getUpcomingGames(int count) {
+        long time = System.currentTimeMillis() / 1000;
+        String query = String.format("f name, first_release_date; w first_release_date > %d; sort first_release_date asc; limit %d;", time, count);
+
+        var listOfGames = queryGamesRequest(query);
+        if (listOfGames.size() < 1) {
+            System.out.println("No games found");
+        } else {
+            for (var game : listOfGames) {
+                LocalDate date = Instant
+                        .ofEpochSecond(game.getFirstReleaseDate().getSeconds(), game.getFirstReleaseDate().getNanos())
+                        .atZone(ZoneId.of("GMT+1")).toLocalDate();
+
+                System.out.println(game.getName() + " " + date);
+            }
+        }
+
+        return listOfGames;
+    }
+
+    public static List<Game> getUpcomingGamesByGenre(Genre genre, int count) {
+        long time = System.currentTimeMillis() / 1000;
+        int genreId = genreToIgdbId(genre);
+        String query = String.format("f name, first_release_date; w first_release_date > %d & genres = %d; sort first_release_date asc; limit %d;", time, genreId, count);
+
+        var listOfGames = queryGamesRequest(query);
+        if (listOfGames.size() < 1) {
+            System.out.println("No games found");
+        } else {
+            for (var game : listOfGames) {
+                LocalDate date = Instant
+                        .ofEpochSecond(game.getFirstReleaseDate().getSeconds(), game.getFirstReleaseDate().getNanos())
+                        .atZone(ZoneId.of("GMT+1")).toLocalDate();
+
+                System.out.println(game.getName() + " " + date);
+            }
+        }
+
+        return listOfGames;
+    }
+
 
     private static int genreToIgdbId(Genre genre) {
         return switch (genre) {
