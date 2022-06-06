@@ -1,4 +1,4 @@
-package com.app.gameshop.model;
+package com.app.GameShop.model;
 
 import java.time.LocalDateTime;
 import java.util.UUID;

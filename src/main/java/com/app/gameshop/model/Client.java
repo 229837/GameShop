@@ -1,4 +1,4 @@
-package com.app.gameshop.model;
+package com.app.GameShop.model;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -26,7 +26,7 @@ public class Client {
         Year = year;
         this.account = new Account();
     }
-    
+
     public Period AgeCalc(){
         LocalDate today = LocalDate.now();
         LocalDate birthDate = LocalDate.of(Year, Month, Day);
