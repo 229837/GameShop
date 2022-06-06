@@ -21,6 +21,7 @@ public class IGDBConnection {
 
     public static void getTop10GamesAllTime() {
         var listOfGames = queryGamesRequest("fields name, total_rating, first_release_date; where category=0 & total_rating_count>1000; sort total_rating desc; limit 10;");
+        if (listOfGames == null) return;
         for (var game : listOfGames) {
             LocalDate date = Instant
                     .ofEpochSecond(game.getFirstReleaseDate().getSeconds(), game.getFirstReleaseDate().getNanos())
@@ -34,7 +35,7 @@ public class IGDBConnection {
         String query = String.format("fields name, total_rating, first_release_date; where name ~ \"%s\"; sort total_rating desc; limit 5;", gameName);
         var listOfGames = queryGamesRequest(query);
 
-        if (listOfGames.size() < 1) {
+        if (listOfGames == null || listOfGames.size() < 1) {
             System.out.println("No games found");
         } else {
             var game = listOfGames.get(0);
@@ -52,7 +53,7 @@ public class IGDBConnection {
 
         var listOfGames = queryGamesRequest(query);
 
-        if (listOfGames.size() < 1) {
+        if (listOfGames == null || listOfGames.size() < 1) {
             System.out.println("No games found");
         } else {
             for (var game : listOfGames) {
@@ -70,7 +71,7 @@ public class IGDBConnection {
         String query = String.format("f name, first_release_date; w first_release_date > %d; sort first_release_date asc; limit %d;", time, count);
 
         var listOfGames = queryGamesRequest(query);
-        if (listOfGames.size() < 1) {
+        if (listOfGames == null || listOfGames.size() < 1) {
             System.out.println("No games found");
         } else {
             for (var game : listOfGames) {
@@ -91,7 +92,7 @@ public class IGDBConnection {
         String query = String.format("f name, first_release_date; w first_release_date > %d & genres = %d; sort first_release_date asc; limit %d;", time, genreId, count);
 
         var listOfGames = queryGamesRequest(query);
-        if (listOfGames.size() < 1) {
+        if (listOfGames == null || listOfGames.size() < 1) {
             System.out.println("No games found");
         } else {
             for (var game : listOfGames) {
@@ -145,6 +146,9 @@ public class IGDBConnection {
             System.out.printf("Failed request. Did you setup Client ID and Access Token?");
         } catch (InvalidProtocolBufferException e) {
             e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Do you have correct .env file?");
         }
 
         return null;
