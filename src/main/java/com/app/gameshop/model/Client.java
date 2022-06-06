@@ -5,6 +5,7 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.ArrayList;
 import java.util.UUID;
 
 @Getter
@@ -15,6 +16,7 @@ public class Client {
     private String login;
     private String password;
     private int Day, Month, Year;
+    private Basket basket;
     private Account account;
 
     public Client(UUID id, String login, String password, int day, int month, int year) {
@@ -24,9 +26,10 @@ public class Client {
         Day = day;
         Month = month;
         Year = year;
+        this.basket = new Basket(new ArrayList<>());
         this.account = new Account();
     }
-    
+
     public Period AgeCalc(){
         LocalDate today = LocalDate.now();
         LocalDate birthDate = LocalDate.of(Year, Month, Day);

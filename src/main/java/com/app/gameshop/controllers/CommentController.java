@@ -1,9 +1,12 @@
 package com.app.gameshop.controllers;
 
+import com.app.gameshop.model.Basket;
 import com.app.gameshop.model.Client;
 import com.app.gameshop.model.Comment;
+import com.app.gameshop.model.Product;
 import com.app.gameshop.services.CommentService;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import org.springframework.web.bind.annotation.GetMapping;
