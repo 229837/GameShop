@@ -17,6 +17,7 @@ public class Client {
     private String password;
     private int Day, Month, Year;
     private Basket basket;
+    private Account account;
 
     public Client(UUID id, String login, String password, int day, int month, int year) {
         this.id = id;
@@ -26,6 +27,7 @@ public class Client {
         Month = month;
         Year = year;
         this.basket = new Basket(new ArrayList<>());
+        this.account = new Account();
     }
 
     public Period AgeCalc(){
