@@ -17,15 +17,15 @@ public class Client {
     private int Day, Month, Year;
     private Basket basket;
 
-    public Client(UUID id, String login, String password, int day, int month, int year) {
+    public Client(UUID id, String login, String password, int day, int month, int year, Basket basket) {
         this.id = id;
         this.login = login;
         this.password = password;
         Day = day;
         Month = month;
         Year = year;
+        this.basket = basket;
     }
-
 
     public Period AgeCalc(){
         LocalDate today = LocalDate.now();

@@ -1,9 +1,12 @@
 package com.app.gameshop.controllers;
 
+import com.app.gameshop.model.Basket;
 import com.app.gameshop.model.Client;
 import com.app.gameshop.model.Comment;
+import com.app.gameshop.model.Product;
 import com.app.gameshop.services.CommentService;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +26,7 @@ public class CommentController {
     public Comment add(@RequestParam String ownerUuid, @RequestParam String commentContent, @RequestParam int rating) {
         try {
             //TODO get existing client
-            Client owner = new Client(UUID.fromString(ownerUuid), "Client", "1234", 1, 1, 1999);
+            Client owner = new Client(UUID.fromString(ownerUuid), "Client", "1234", 1, 1, 1999,new Basket(new ArrayList<>()));
             Comment comment = new Comment(owner, commentContent, rating, LocalDateTime.now());
             if (commentService.add(comment)) {
                 return comment;

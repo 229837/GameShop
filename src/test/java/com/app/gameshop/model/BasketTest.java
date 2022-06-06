@@ -18,8 +18,7 @@ public class BasketTest {
         product.setId(UUID.randomUUID());
         product.setName("asd");
         product.setPrice((10));
-        List<Product> productList = new ArrayList<>();
-        Basket basket = new Basket(productList);
+        Basket basket = new Basket(new ArrayList<>());
         Assertions.assertEquals(basket.getProductList().size(),0);
         basket.addProduct(product);
         Assertions.assertEquals(basket.getProductList().size(),1);
@@ -34,8 +33,7 @@ public class BasketTest {
         product2.setId(UUID.randomUUID());
         product2.setName("tyr");
         product2.setPrice((20));
-        List<Product> productList = new ArrayList<>();
-        Basket basket = new Basket(productList);
+        Basket basket = new Basket(new ArrayList<>());
         basket.addProduct(product1);
         basket.addProduct(product2);
         Assertions.assertEquals(basket.getProductList().size(),2);
@@ -62,8 +60,7 @@ public class BasketTest {
         product4.setId(UUID.randomUUID());
         product4.setName("qwe");
         product4.setPrice((10));
-        List<Product> productList = new ArrayList<>();
-        Basket basket = new Basket(productList);
+        Basket basket = new Basket(new ArrayList<>());
         basket.addProduct(product1);
         Assertions.assertEquals(basket.calculateBasketPrice(),10);
         basket.addProduct(product2);
