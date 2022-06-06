@@ -1,5 +1,6 @@
 package com.app.GameShop.model;
 
+import com.app.gameshop.model.Metadata;
 import lombok.Getter;
 import lombok.Setter;
 
