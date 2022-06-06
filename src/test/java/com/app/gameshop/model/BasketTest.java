@@ -18,10 +18,10 @@ public class BasketTest {
         product.setId(UUID.randomUUID());
         product.setName("asd");
         product.setPrice((10));
-        Basket basket = new Basket(new ArrayList<>());
-        Assertions.assertEquals(basket.getProductList().size(),0);
-        basket.addProduct(product);
-        Assertions.assertEquals(basket.getProductList().size(),1);
+        Client client = new Client(UUID.randomUUID(),"test","1234",1,1,1999);
+        Assertions.assertEquals(client.getBasket().getProductList().size(),0);
+        client.getBasket().addProduct(product);
+        Assertions.assertEquals(client.getBasket().getProductList().size(),1);
     }
     @Test
     public void removeProduct(){
@@ -33,14 +33,14 @@ public class BasketTest {
         product2.setId(UUID.randomUUID());
         product2.setName("tyr");
         product2.setPrice((20));
-        Basket basket = new Basket(new ArrayList<>());
-        basket.addProduct(product1);
-        basket.addProduct(product2);
-        Assertions.assertEquals(basket.getProductList().size(),2);
-        basket.removeProduct(product1);
-        Assertions.assertEquals(basket.getProductList().size(),1);
-        Assertions.assertTrue(basket.getProductList().contains(product2));
-        Assertions.assertFalse(basket.getProductList().contains(product1));
+        Client client = new Client(UUID.randomUUID(),"test","1234",1,1,1999);
+        client.getBasket().addProduct(product1);
+        client.getBasket().addProduct(product2);
+        Assertions.assertEquals(client.getBasket().getProductList().size(),2);
+        client.getBasket().removeProduct(product1);
+        Assertions.assertEquals(client.getBasket().getProductList().size(),1);
+        Assertions.assertTrue(client.getBasket().getProductList().contains(product2));
+        Assertions.assertFalse(client.getBasket().getProductList().contains(product1));
     }
     @Test
     public void calculateBasket(){
@@ -60,18 +60,18 @@ public class BasketTest {
         product4.setId(UUID.randomUUID());
         product4.setName("qwe");
         product4.setPrice((10));
-        Basket basket = new Basket(new ArrayList<>());
-        basket.addProduct(product1);
-        Assertions.assertEquals(basket.calculateBasketPrice(),10);
-        basket.addProduct(product2);
-        Assertions.assertEquals(basket.calculateBasketPrice(),60);
-        basket.addProduct(product3);
-        Assertions.assertEquals(basket.calculateBasketPrice(),90);
-        basket.addProduct(product4);
-        Assertions.assertEquals(basket.calculateBasketPrice(),100);
-        basket.removeProduct(product3);
-        Assertions.assertEquals(basket.calculateBasketPrice(),70);
-        basket.removeProduct(product2);
-        Assertions.assertEquals(basket.calculateBasketPrice(),20);
+        Client client = new Client(UUID.randomUUID(),"test","1234",1,1,1999);
+        client.getBasket().addProduct(product1);
+        Assertions.assertEquals(client.getBasket().calculateBasketPrice(),10);
+        client.getBasket().addProduct(product2);
+        Assertions.assertEquals(client.getBasket().calculateBasketPrice(),60);
+        client.getBasket().addProduct(product3);
+        Assertions.assertEquals(client.getBasket().calculateBasketPrice(),90);
+        client.getBasket().addProduct(product4);
+        Assertions.assertEquals(client.getBasket().calculateBasketPrice(),100);
+        client.getBasket().removeProduct(product3);
+        Assertions.assertEquals(client.getBasket().calculateBasketPrice(),70);
+        client.getBasket().removeProduct(product2);
+        Assertions.assertEquals(client.getBasket().calculateBasketPrice(),20);
     }
 }

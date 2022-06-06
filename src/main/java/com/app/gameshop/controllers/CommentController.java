@@ -26,7 +26,7 @@ public class CommentController {
     public Comment add(@RequestParam String ownerUuid, @RequestParam String commentContent, @RequestParam int rating) {
         try {
             //TODO get existing client
-            Client owner = new Client(UUID.fromString(ownerUuid), "Client", "1234", 1, 1, 1999,new Basket(new ArrayList<>()));
+            Client owner = new Client(UUID.fromString(ownerUuid), "Client", "1234", 1, 1, 1999);
             Comment comment = new Comment(owner, commentContent, rating, LocalDateTime.now());
             if (commentService.add(comment)) {
                 return comment;
