@@ -1,7 +1,7 @@
-package com.app.GameShop.model;
+package com.app.gameshop.model;
 
-import com.app.GameShop.repositories.ProductRepository;
-import com.app.GameShop.services.ProductService;
+import com.app.gameshop.repositories.ProductRepository;
+import com.app.gameshop.services.ProductService;
 import com.app.gameshop.model.Wallet;
 import lombok.Getter;
 import lombok.Setter;

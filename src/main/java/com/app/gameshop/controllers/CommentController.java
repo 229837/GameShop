@@ -1,13 +1,13 @@
-package com.app.GameShop.controllers;
+package com.app.gameshop.controllers;
 
-import com.app.GameShop.model.Client;
-import com.app.GameShop.model.Comment;
-import com.app.GameShop.services.CommentService;
-import com.app.GameShop.model.Basket;
-import com.app.GameShop.model.Client;
-import com.app.GameShop.model.Comment;
-import com.app.GameShop.model.Product;
-import com.app.GameShop.services.CommentService;
+import com.app.gameshop.model.Client;
+import com.app.gameshop.model.Comment;
+import com.app.gameshop.services.CommentService;
+import com.app.gameshop.model.Basket;
+import com.app.gameshop.model.Client;
+import com.app.gameshop.model.Comment;
+import com.app.gameshop.model.Product;
+import com.app.gameshop.services.CommentService;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

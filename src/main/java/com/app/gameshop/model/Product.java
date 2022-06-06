@@ -1,4 +1,4 @@
-package com.app.GameShop.model;
+package com.app.gameshop.model;
 
 import com.app.gameshop.model.Metadata;
 import lombok.Getter;

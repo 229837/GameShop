@@ -1,7 +1,7 @@
-package com.app.GameShop.services;
+package com.app.gameshop.services;
 
-import com.app.GameShop.model.Comment;
-import com.app.GameShop.repositories.CommentRepository;
+import com.app.gameshop.model.Comment;
+import com.app.gameshop.repositories.CommentRepository;
 import java.util.List;
 import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;

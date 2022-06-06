@@ -1,6 +1,6 @@
-package com.app.GameShop.repositories;
-import com.app.GameShop.model.Genre;
-import com.app.GameShop.model.Product;
+package com.app.gameshop.repositories;
+import com.app.gameshop.model.Genre;
+import com.app.gameshop.model.Product;
 
 import java.util.ArrayList;
 import java.util.Collections;

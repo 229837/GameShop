@@ -1,14 +1,13 @@
-package com.app.GameShop;
+package com.app.gameshop;
 
-import com.app.GameShop.model.Basket;
-import com.app.GameShop.model.Product;
+import com.app.gameshop.model.Basket;
+import com.app.gameshop.model.Product;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-
 
 public class BasketTest {
     @Test

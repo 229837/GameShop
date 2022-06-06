@@ -1,4 +1,4 @@
-package com.app.GameShop;
+package com.app.gameshop;
 
 import com.app.gameshop.igdbconnection.IGDBConnection;
 import com.app.gameshop.model.Genre;

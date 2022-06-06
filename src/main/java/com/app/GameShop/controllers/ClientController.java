@@ -1,7 +1,6 @@
-package com.app.GameShop.controllers;
+package com.app.gameshop.controllers;
 
-import com.app.GameShop.model.Client;
-
+import com.app.gameshop.model.Client;
 
 public class ClientController {
 

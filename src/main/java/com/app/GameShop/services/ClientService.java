@@ -1,7 +1,7 @@
-package com.app.GameShop.services;
+package com.app.gameshop.services;
 
-import com.app.GameShop.model.Client;
-import com.app.GameShop.repositories.ClientRepository;
+import com.app.gameshop.model.Client;
+import com.app.gameshop.repositories.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
