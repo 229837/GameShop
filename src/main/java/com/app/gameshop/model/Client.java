@@ -15,6 +15,7 @@ public class Client {
     private String login;
     private String password;
     private int Day, Month, Year;
+    private Basket basket;
 
     public Client(UUID id, String login, String password, int day, int month, int year) {
         this.id = id;

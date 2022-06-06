@@ -14,6 +14,7 @@ public class Basket {
     public Basket(List<Product> productList) {
         this.productList = productList;
     }
+
     public void addProduct(Product product){
         getProductList().add(product);
     }
