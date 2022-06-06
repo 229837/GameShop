@@ -15,6 +15,7 @@ public class Client {
     private String login;
     private String password;
     private int Day, Month, Year;
+    private Account account;
 
     public Client(UUID id, String login, String password, int day, int month, int year) {
         this.id = id;
@@ -23,9 +24,9 @@ public class Client {
         Day = day;
         Month = month;
         Year = year;
+        this.account = new Account();
     }
-
-
+    
     public Period AgeCalc(){
         LocalDate today = LocalDate.now();
         LocalDate birthDate = LocalDate.of(Year, Month, Day);
