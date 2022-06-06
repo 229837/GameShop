@@ -16,6 +16,12 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>17</java.version>
 	</properties>
+	<repositories>
+		<repository>
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
+		</repository>
+	</repositories>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -47,6 +53,18 @@
 			<artifactId>checkstyle</artifactId>
 			<version>10.2</version>
 		</dependency>
+		<dependency>
+			<groupId>com.github.husnjak</groupId>
+			<artifactId>IGDB-API-JVM</artifactId>
+			<version>1.0.5</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.github.cdimascio/java-dotenv -->
+		<dependency>
+			<groupId>io.github.cdimascio</groupId>
+			<artifactId>java-dotenv</artifactId>
+			<version>5.2.2</version>
+		</dependency>
+
 	</dependencies>
 	<build>
 		<plugins>
