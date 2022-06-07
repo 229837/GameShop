@@ -7,7 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class GameShopApplication {
     public static void main(String[] args) {
-        IGDBConnection.getUpcomingGames(5);
+
+
         SpringApplication.run(GameShopApplication.class, args);
     }
 }
