@@ -1,7 +1,7 @@
 package com.app.gameshop.controllers;
 
-import com.app.GameShop.model.Client
-import com.app.GameShop.services.ClientService;
+import com.app.GameShop.model.Client;
+import com.app.gameshop.services.ClientService;
 import com.app.gameshop.services.FirebaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

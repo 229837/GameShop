@@ -1,4 +1,4 @@
-package com.app.GameShop.services;
+package com.app.gameshop.services;
 
 import com.app.GameShop.model.Client;
 import com.app.GameShop.repositories.ClientRepository;
@@ -31,6 +31,15 @@ public class ClientService {
     public Client find(UUID id) {
         for(int i=0; i< clientRepository.size(); i++) {
             if(clientRepository.get(i).getId().equals(id)) {
+                return clientRepository.get(i);
+            }
+        }
+        return null;
+    }
+
+    public com.app.GameShop.model.Client findByLogin(String name) {
+        for(int i=0; i< clientRepository.size(); i++) {
+            if(clientRepository.get(i).getLogin().equals(name)) {
                 return clientRepository.get(i);
             }
         }

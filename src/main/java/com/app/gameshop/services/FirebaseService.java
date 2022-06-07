@@ -1,6 +1,6 @@
 package com.app.gameshop.services;
 
-import com.app.gameshop.model.Client;
+import com.app.GameShop.model.Client;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.Firestore;
 import com.google.cloud.firestore.WriteResult;
