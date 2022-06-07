@@ -111,3 +111,5 @@ fabric.properties
 
 # Checkstyle
 .idea/checkstyleidea*/
+env
+gameshop-account-file.json
