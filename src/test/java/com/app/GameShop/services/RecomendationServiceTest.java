@@ -2,6 +2,7 @@ package com.app.gameshop.services;
 
 import com.app.GameShop.services.RecomendationService;
 import com.app.gameshop.model.Product;
+import com.app.gameshop.model.Client;
 import com.app.gameshop.model.Genre;
 import com.app.gameshop.repositories.ProductRepository;
 import org.junit.jupiter.api.Test;
@@ -33,7 +34,7 @@ class RecomendationServiceTest {
             } else if (i == 1) {
                 p1.setReleaseDate(LocalDate.of(2020, 1, 1));
             } else {
-                p1.setReleaseDate(LocalDate.of(2018, 1, 1));
+                p1.setReleaseDate(LocalDate.of(2010 + (Math.abs(rand.nextInt())%31)-15, 1, 1));
             }
             if(i < 75) {
                 p1.setGenre(Genre.FPS);
@@ -45,10 +46,17 @@ class RecomendationServiceTest {
             ps.add(p1);
         }
 
-        assertEquals(RecomendationService.getCommonGenre(ps), Genre.FPS);
-        System.out.println(RecomendationService.getYears(ps));
-        //assertEquals(RecomendationService.GetPrice(ps), new Point(0, 210));
+        Client client = new Client(UUID.randomUUID(), "aaa", "bbb", 10, 10, 2010);
+        for(int i=0; i<ps.getAll().size(); i++) {
+            if(Math.abs(rand.nextInt()%100) < 15) {
+                client.getAccount().getMyGames().add(ps.getAll().get(i));
+            }
+        }
 
+        List<Product> prop = RecomendationService.getRecommentatedProducts(client, ps);
+        for (Product product : prop) {
+            System.out.println(product);
+        }
     }
 
 }
