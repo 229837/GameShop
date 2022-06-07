@@ -2,17 +2,15 @@ package com.app.gameshop.controllers;
 
 import com.app.gameshop.model.*;
 import com.app.gameshop.services.ClientService;
-import com.app.gameshop.services.ProductService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.servlet.ModelAndView;
+
 
 import java.time.LocalDate;
-import java.util.List;
-import java.util.Objects;
-import java.util.UUID;
+import java.util.*;
 
 @RestController
 public class ClientController {
@@ -55,15 +53,29 @@ public class ClientController {
         return clientService.find(UUID.fromString(uuid)).getAccount();
     }
     @GetMapping("/clients/find/{uuid_client}/basket/id")
-    public Product addProductToBasket(@PathVariable("uuid_client") String uuid_client, @RequestParam String uuid_product){
+    public Client addProductToBasket(@PathVariable("uuid_client") String uuid_client, @RequestParam String uuid_product){
      //   clientService.find(UUID.fromString(uuid_client)).getBasket().getProductList().add(productController.find(uuid_product));
         if(!Objects.isNull(clientService.find(UUID.fromString(uuid_client)).getBasket().getProductList().find(UUID.fromString(uuid_product)))){
-            return clientService.find(UUID.fromString(uuid_client)).getBasket().getProductList().find(UUID.fromString(uuid_product));
+            return clientService.find(UUID.fromString(uuid_client));
         }
         RestTemplate restTemplate = new RestTemplate();
         String url = "http://localhost:8080/products/find/" + uuid_product;
         ResponseEntity<Product> responseEntity = restTemplate.getForEntity(url,Product.class);
         clientService.find(UUID.fromString(uuid_client)).getBasket().getProductList().add(responseEntity.getBody());
-        return  clientService.find(UUID.fromString(uuid_client)).getBasket().getProductList().find(UUID.fromString(uuid_product));
+        return  clientService.find(UUID.fromString(uuid_client));
     }
+    @GetMapping("/clients/find/{uuid_client}/basket/buy_products")
+    public Client buyProducts(@PathVariable("uuid_client") String id){
+        clientService.find(UUID.fromString(id)).BuyGames();
+        for(Product product : clientService.find(UUID.fromString(id)).getAccount().getMyGames().getAll()){
+            RestTemplate restTemplate = new RestTemplate();
+            String url = "http://localhost:8080/products/find/" + product.getId();
+            ResponseEntity<Product> responseEntity = restTemplate.getForEntity(url,Product.class);
+            if(responseEntity.hasBody() && responseEntity.getBody() != null){
+                responseEntity.getBody().getDetails().increasePurchases();
+            }
+        }
+        return clientService.find(UUID.fromString(id));
+    }
+
 }
