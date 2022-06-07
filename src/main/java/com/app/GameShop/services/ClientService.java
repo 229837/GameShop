@@ -3,10 +3,12 @@ package com.app.gameshop.services;
 import com.app.gameshop.model.Client;
 import com.app.gameshop.repositories.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.UUID;
 
+@Service
 public class ClientService {
     @Autowired
     private ClientRepository clientRepository;
