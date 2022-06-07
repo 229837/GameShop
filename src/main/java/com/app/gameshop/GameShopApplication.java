@@ -1,4 +1,4 @@
-package com.app.GameShop;
+package com.app.gameshop;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

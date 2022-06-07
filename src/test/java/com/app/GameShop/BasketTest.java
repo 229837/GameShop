@@ -1,7 +1,7 @@
-package com.app.GameShop;
+package com.app.gameshop;
 
-import com.app.GameShop.model.Basket;
-import com.app.GameShop.model.Product;
+import com.app.gameshop.model.Basket;
+import com.app.gameshop.model.Product;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

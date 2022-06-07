@@ -1,13 +1,14 @@
-package com.app.GameShop.repositories;
+package com.app.gameshop.repositories;
 
-import com.app.GameShop.model.Client;
+import com.app.gameshop.model.Client;
+import com.app.gameshop.repositories.Repository;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 @org.springframework.stereotype.Repository
-public class ClientRepository implements Repository <Client>{
+public class ClientRepository implements Repository<Client> {
     private final List<Client> clients = new ArrayList<>();
     @Override
     public Client get(int id) {

@@ -1,4 +1,5 @@
-package com.app.GameShop.model;
+package com.app.gameshop.model;
+
 
 import lombok.Getter;
 import lombok.Setter;

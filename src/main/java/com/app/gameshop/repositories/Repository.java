@@ -1,4 +1,4 @@
-package com.app.GameShop.repositories;
+package com.app.gameshop.repositories;
 
 import java.util.List;
 
