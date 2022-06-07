@@ -11,7 +11,7 @@ public class Metadata {
     public int numberOfPurchases;
     public LocalDateTime dateAdded;
 
-    void increasePurchases() {
+    public void increasePurchases() {
         numberOfPurchases++;
     }
 

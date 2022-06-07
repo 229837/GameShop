@@ -1,5 +1,7 @@
 package com.app.gameshop.model;
 
+import com.app.gameshop.repositories.ProductRepository;
+import com.app.gameshop.services.ProductService;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,27 +11,15 @@ import java.util.List;
 @Setter
 
 public class Basket {
-    private List<Product> productList;
+    private ProductService productList;
 
-    public Basket(List<Product> productList) {
-        this.productList = productList;
-    }
-
-    public void addProduct(Product product){
-        getProductList().add(product);
-    }
-    public void removeProduct(Product product){
-        for(Product product1 : getProductList()){
-            if (product1 == product) {
-                getProductList().remove(product);
-                return;
-            }
-        }
+    public Basket() {
+        this.productList = new ProductService(new ProductRepository());
     }
 
     public float calculateBasketPrice(){
         float money = 0;
-        for(Product product : getProductList()){
+        for(Product product : getProductList().getAll()){
             money = money + product.getPrice();
         }
         return money;
