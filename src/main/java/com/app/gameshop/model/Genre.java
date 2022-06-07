@@ -10,4 +10,12 @@ public enum Genre {
             default: return Undefined;
         }
     }
+
+    public static int genreToInt(Genre genre) {
+        switch (genre) {
+            case STRATEGY: return 1;
+            case FPS: return 2;
+            default: return 0;
+        }
+    }
 }
