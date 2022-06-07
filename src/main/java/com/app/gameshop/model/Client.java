@@ -26,7 +26,7 @@ public class Client {
         Day = day;
         Month = month;
         Year = year;
-        this.basket = new Basket(new ArrayList<>());
+        this.basket = new Basket();
         this.account = new Account();
     }
 
@@ -36,4 +36,18 @@ public class Client {
         return Period.between(birthDate, today);
     }
 
+    public void BuyGames(){
+        if(getAccount().getWallet().getBalance() - getBasket().calculateBasketPrice() < 0){
+            return;
+        }
+        if(getAccount().getWallet().getBalance() - getBasket().calculateBasketPrice() >= 0){
+            getAccount().getWallet().setBalance(getAccount().getWallet().getBalance() - getBasket().calculateBasketPrice());
+            for (Product product : getBasket().getProductList().getAll()) {
+                getAccount().getMyGames().add(product);
+            }
+            for (Product product : getAccount().getMyGames().getAll()){
+                getBasket().getProductList().remove(product);
+            }
+        }
+    }
 }
