@@ -1,4 +1,4 @@
-package com.app.GameShop.repositories;
+package com.app.gameshop.repositories;
 
 
 import com.app.GameShop.model.Basket;
