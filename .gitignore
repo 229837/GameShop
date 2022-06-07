@@ -114,3 +114,5 @@ fabric.properties
 
 # dotenv
 .env
+env
+gameshop-account-file.json
