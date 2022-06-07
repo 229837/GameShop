@@ -2,6 +2,8 @@ package com.app.gameshop.controllers;
 
 import com.app.gameshop.model.*;
 import com.app.gameshop.services.ClientService;
+import com.app.gameshop.services.FirebaseService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
@@ -20,10 +22,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.UUID;
+import java.util.concurrent.ExecutionException;
 
 @RestController
 public class ClientController {
     private final ClientService clientService;
+
+    @Autowired
+    FirebaseService fireBaseService;
 
     public ClientController(ClientService clientService) {
         this.clientService = clientService;
@@ -51,6 +57,11 @@ public class ClientController {
             return client;
         }
         return null;
+    }
+
+    @GetMapping("/createClient")
+    public String postExample(@RequestBody Client client) throws  InterruptedException, ExecutionException {
+        return fireBaseService.saveClientDetails(client);
     }
 
     @GetMapping("/clients/find/{uuid}/basket")
