@@ -16,7 +16,7 @@ public class Comment {
         if (owner == null) {
             throw new IllegalArgumentException("Invalid owner");
         }
-        if (comment.isEmpty()) {
+        if (comment == null || comment.isEmpty()) {
             throw new IllegalArgumentException("Comment can not be empty");
         }
         if (rating < 1 || rating > 5) {
