@@ -25,6 +25,16 @@ public enum Genre {
         switch (genre) {
             case STRATEGY: return 1;
             case FPS: return 2;
+            case FIGHTING: return 3;
+            case RACING: return 4;
+            case PUZZLE: return 5;
+            case RPG: return 6;
+            case SIMULATOR: return 7;
+            case SPORT: return 8;
+            case MUSIC: return 9;
+            case PLATFORMER: return 10;
+            case ACTION: return 11;
+            case POINTNCLICK: return 12;
             default: return 0;
         }
     }
