@@ -1,5 +1,6 @@
 package com.app.gameshop.controllers;
 
+import com.app.gameshop.igdbconnection.IGDBConnection;
 import com.app.gameshop.model.Genre;
 import com.app.gameshop.model.Product;
 import com.app.gameshop.services.ProductService;
@@ -17,6 +18,7 @@ public class ProductController {
     private ProductService productService;
     public ProductController(ProductService productService) {
         this.productService = productService;
+        IGDBConnection.fillProductsRepository(productService);
     }
 
     @GetMapping("/products")
