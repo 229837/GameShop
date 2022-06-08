@@ -45,6 +45,7 @@ class ProductTest {
         p.setReleaseDate(ld);
         assertEquals(p.getReleaseDate(), ld);
     }
+
     @Test
     void metadataTest() {
         Product p = new Product();
@@ -63,5 +64,27 @@ class ProductTest {
 
         p.getDetails().increasePurchases();
         assertEquals(p.getDetails().getNumberOfPurchases(), 2);
+    }
+
+    @Test
+    void commentsTest() {
+        Product product = new Product();
+        Client client = new Client(UUID.randomUUID(), "Client", "1234", 1, 1, 1999);
+        Comment comment0 = new Comment(client, "Test Comment 0", 3, LocalDateTime.now());
+        Comment comment1 = new Comment(client, "Test Comment 1", 3, LocalDateTime.now());
+        Comment comment2 = new Comment(client, "Test Comment 2", 3, LocalDateTime.now());
+        assertEquals(0, product.getComments().size());
+        product.addComment(comment0);
+        assertEquals(1, product.getComments().size());
+        assertTrue(product.getComments().contains(comment0));
+        product.addComment(comment1);
+        assertEquals(2, product.getComments().size());
+        assertTrue(product.getComments().contains(comment1));
+        product.addComment(comment2);
+        assertEquals(3, product.getComments().size());
+        assertTrue(product.getComments().contains(comment2));
+        product.addComment(comment2);
+        assertEquals(3, product.getComments().size());
+        assertTrue(product.getComments().contains(comment2));
     }
 }

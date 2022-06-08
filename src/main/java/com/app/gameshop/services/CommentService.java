@@ -2,15 +2,20 @@ package com.app.gameshop.services;
 
 import com.app.gameshop.model.Comment;
 import com.app.gameshop.repositories.CommentRepository;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.UUID;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class CommentService {
-    @Autowired
-    private CommentRepository commentRepository;
+    private final CommentRepository commentRepository;
+
+    public CommentService(CommentRepository commentRepository) {
+        this.commentRepository = commentRepository;
+    }
 
     public boolean add(Comment comment) {
         return commentRepository.add(comment);
@@ -35,5 +40,31 @@ public class CommentService {
             }
         }
         return null;
+    }
+
+    private List<Comment> sort(Comparator<? super Comment> comparator) {
+        List<Comment> sortedComments = new ArrayList<>(commentRepository.getAll());
+        sortedComments.sort(comparator);
+        return sortedComments;
+    }
+
+    public List<Comment> getSortedByWorstRating() {
+        return Collections.unmodifiableList(sort(Comparator.comparingInt(Comment::getRating)));
+    }
+
+    public List<Comment> getSortedByBestRating() {
+        List<Comment> comments = sort(Comparator.comparingInt(Comment::getRating));
+        Collections.reverse(comments);
+        return Collections.unmodifiableList(comments);
+    }
+
+    public List<Comment> getSortedByOldest() {
+        return sort(Comparator.comparing(Comment::getDateTime));
+    }
+
+    public List<Comment> getSortedByNewest() {
+        List<Comment> comments = sort(Comparator.comparing(Comment::getDateTime));
+        Collections.reverse(comments);
+        return comments;
     }
 }
