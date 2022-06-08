@@ -14,6 +14,7 @@ import proto.GameResult;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -34,7 +35,7 @@ public class IGDBConnection {
                             .ofEpochSecond(game.getFirstReleaseDate().getSeconds(), game.getFirstReleaseDate().getNanos())
                             .atZone(ZoneId.of("GMT+1")).toLocalDate();
 
-                    Product product = new Product(game.getName(), price, genre, date);
+                    Product product = new Product(game.getName(), price, genre, date, new ArrayList<>());
                     productService.add(product);
 
                 } catch (Exception e) {
