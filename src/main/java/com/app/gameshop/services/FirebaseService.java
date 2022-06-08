@@ -13,7 +13,7 @@ import java.util.concurrent.ExecutionException;
 public class FirebaseService {
     public String saveClientDetails(Client client) throws ExecutionException, InterruptedException {
         Firestore dbFirestore = FirestoreClient.getFirestore();
-        ApiFuture<WriteResult> collectionsApiFuture = dbFirestore.collection("users").document(String.valueOf(client.getId())).set(client);
+        ApiFuture<WriteResult> collectionsApiFuture = dbFirestore.collection("clients").document(String.valueOf(client.getId())).set(client);
         return collectionsApiFuture.get().getUpdateTime().toString();
     }
 
